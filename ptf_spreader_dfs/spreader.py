@@ -301,37 +301,6 @@ class Test0(AbstractTest):
                 gc.DataTuple('shift_value', 1)
             ]
         )
-
-        # 获取表对象
-        #table = self.bfrt_info.table_get('SwitchIngress.table_shift')
-
-        #插入优先级较高的表项
-        #key1 = table.make_key([
-            #gc.KeyTuple('persistence', 0x00000800, 0x00000800)
-        #])
-        #data1 = table.make_data([
-            #gc.DataTuple('shift_value', 2)
-        #])
-        #table.entry_add(
-            #target=gc.Target(device_id=0, pipe_id=0xffff),
-            #keys=[key1],
-            #data=[data1],
-            #options=gc.TableEntryOptions(priority=10)  # 设置优先级为10
-        #)
-
-        #插入优先级较低的表项
-        #key2 = table.make_key([
-            #gc.KeyTuple('persistence', 0x00000400, 0x00000400)
-        #])
-        #data2 = table.make_data([
-            #gc.DataTuple('shift_value', 1)
-        #])
-        #table.entry_add(
-            #target=gc.Target(device_id=0, pipe_id=0xffff),
-            #keys=[key2],
-            #data=[data2],
-            #options=gc.TableEntryOptions(priority=5)  # 设置优先级为5
-        #)
             
         table_names=self.bfrt_info.table_dict.keys()
 
