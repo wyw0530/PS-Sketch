@@ -37,6 +37,14 @@ control UpdateP_Sketch(
     };
     Lpf<persistence_t, p_index_t>(size=P_ARRAY_CELL_NUM) p_array_lpf2;
     
+    
+    //Register<bit<32>, p_index_t>(P_ARRAY_CELL_NUM) p_persist;
+    //RegisterAction<bit<32>, p_index_t, void>(p_persist) update_p_persist = {
+    //    void apply(inout bit<32> value){
+    //        value = persistence1;
+    //    }
+    //};
+
     action trigger1(){
         flag_to_p_array1 = update_p_array1.execute(array1_index);
     }
@@ -53,6 +61,8 @@ control UpdateP_Sketch(
         lpf_insert_value1 = (bit<32>)flag_to_p_array1;
         lpf_insert_value1 = lpf_insert_value1 << 10;
         persistence1 = (persistence_t)p_array_lpf1.execute(lpf_insert_value1, array1_index);
+        //update_p_persist.execute(array1_index);
+        
         
         lpf_insert_value2 = (bit<32>)flag_to_p_array2;
         lpf_insert_value2 = lpf_insert_value2 << 10;
