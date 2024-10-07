@@ -157,6 +157,21 @@ control SwitchIngress(
         const default_action = cal_shift(1);
         size = 32;
     }
+
+    // Register<msb_value_t, bit<1>>(1) msb_reg;
+    // RegisterAction<msb_value_t, bit<1>, void>(msb_reg) update_msb_reg = {
+    //     void apply(inout msb_value_t value){
+    //         value = msb_value;
+    //     }
+    // };
+    
+    
+    // Register<bit<16>, bit<1>>(1) h2_reg;
+    // RegisterAction<bit<16>, bit<1>, void>(h2_reg) update_h2_reg = {
+    //     void apply(inout bit<16> value){
+    //         value = hash_str;
+    //     }
+    // };
     
     apply{
         src = hdr.ipv4.srcAddr;
@@ -181,6 +196,7 @@ control SwitchIngress(
                          persistence2
                             );
         hash_str = hash_ss.get({src, dst});//hash to 0_1 string 
+        // update_h2_reg.execute(0);
 
         h1 = hash_str[15:12];
         h2 = hash_str[11:0];
@@ -202,6 +218,7 @@ control SwitchIngress(
         }
         table_shift.apply();
         msb_value = msb_value + shift_length;
+        // update_msb_reg.execute(0);
 
         table_forward.apply(); 
         M1_index = M1_index << 4;
