@@ -140,8 +140,8 @@ class Test0(AbstractTest):
     # Current statement coverage: 0.86
 
     def setupCtrlPlane(self):
-        #simple_lpf.pipe.SwitchIngress.p_array_lpf1> add(0, 'RATE', 16000000, 16000000, 4);
-        #simple_lpf.pipe.SwitchIngress.p_array_lpf2> add(0, 'RATE', 16000000, 16000000, 4);
+        #simple_lpf.pipe.SwitchIngress.p_array_lpf1> add(0, 'RATE', 16000000, 16000000, 4)
+        #simple_lpf.pipe.SwitchIngress.p_array_lpf2> add(0, 'RATE', 16000000, 16000000, 4)
         for i in range(64): 
             self.setRegisterValue('SwitchIngress.updatep_sketch.p_array1', 0x00000000, i)
             self.setRegisterValue('SwitchIngress.updatep_sketch.p_array2', 0x00000000, i)
@@ -428,7 +428,7 @@ class Test0(AbstractTest):
             print(data_dict)
         
         send_packet(self, ig_port, packet2) 
-        time.sleep(0.1);
+        time.sleep(0.1)
         #register_table = self.bfrt_info.table_get("updatep_sketch.p_persist")
         #for i in range(64):
             #resp = register_table.entry_get(
@@ -468,7 +468,7 @@ class Test0(AbstractTest):
         
         
         send_packet(self, ig_port, packet3) 
-        time.sleep(0.1);
+        time.sleep(0.1)
         #register_table = self.bfrt_info.table_get("updatep_sketch.p_persist")
         #for i in range(64):
             #resp = register_table.entry_get(
@@ -490,7 +490,7 @@ class Test0(AbstractTest):
         
         print("---------------------------------start-----------------------------------")
         send_packet(self, ig_port, packet4) 
-        time.sleep(2);
+        time.sleep(2)
         
         print("packet4")
         register_table = self.bfrt_info.table_get("SwitchIngress.msb_reg")
@@ -523,7 +523,7 @@ class Test0(AbstractTest):
         #time.sleep(0.1)
         #send_packet(self, ig_port, packet5) 
         send_packet(self, ig_port, packet5) 
-        time.sleep(2);
+        time.sleep(2)
         print("packet5")
         
 
@@ -556,7 +556,7 @@ class Test0(AbstractTest):
         
         send_packet(self, ig_port, packet6) 
         send_packet(self, ig_port, packet6) 
-        time.sleep(2);
+        time.sleep(2)
         print("packet6")
         register_table = self.bfrt_info.table_get("SwitchIngress.msb_reg")
         resp = register_table.entry_get(
@@ -587,7 +587,7 @@ class Test0(AbstractTest):
         
 
         send_packet(self, ig_port, packet7) 
-        time.sleep(2);
+        time.sleep(2)
         print("packet7")
         register_table = self.bfrt_info.table_get("SwitchIngress.msb_reg")
         resp = register_table.entry_get(
@@ -728,7 +728,7 @@ class Test0(AbstractTest):
         send_packet(self, ig_port, packet1)
         
             
-        time.sleep(1);
+        time.sleep(1)
         send_packet(self, ig_port, packet2) 
         register_table = self.bfrt_info.table_get("SwitchIngress.msb_reg")
         resp = register_table.entry_get(
